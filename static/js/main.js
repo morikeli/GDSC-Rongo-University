@@ -132,9 +132,6 @@
 		}
 	});
 
-	/**
-	 * Initiate glightbox
-	 */
 	// initiate glightbox
 	const glightbox = GLightbox({
 		selector: '.glightbox'
@@ -176,9 +173,9 @@
 	});
 
 	// gallery glightbox
-	// const galleryLightbox = GLightbox({
-	// 	selector: '.gallery-lightbox'
-	// });
+	const galleryLightbox = GLightbox({
+		selector: '.gallery-lightbox'
+	});
 
 	// animation on scroll
 	window.addEventListener('load', () => {
