@@ -1,4 +1,5 @@
 {% extends 'base.html' %}{% block title %}Index{% endblock %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,8 @@
 	<section id="hero">
 		<div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
 			<h1 class="mb-4 pb-0"><span>GDSC</span><br>Rongo University</h1>
-			<p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-			<a href="" class="glightbox play-btn mb-4"></a>
+			<p class="mb-4 pb-0">Bridging the gap between theory and practise</p>
+			<a href="https://www.youtube.com/watch?v=earTjC0iSjg" class="play-btn mb-4" target="_blank"></a>
 			<a href="#about" class="about-btn scrollto">Club info.</a>
 		</div>
 	</section>
@@ -25,9 +26,8 @@
 				<div class="col-lg-6">
 					<h2>About the club</h2>
 					<p>
-						Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
-						accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
-						est ut optio sequi unde.
+						Google Developers Student Club Rongo University Chapter is a club dedicated to bridging the gap between theory and
+                        practise by using Google technologies in addition to other programming concepts to solve problems affecting our communities.
 					</p>
 				</div>
 				<div class="col-lg-3">
@@ -42,7 +42,7 @@
 			</div>
 		</section>
 
-		<section id="speakers">
+		<section id="officials">
 			<div class="container" data-aos="fade-up">
 				<div class="section-header">
 					<h2>Club Officials</h2>
@@ -50,38 +50,23 @@
 				</div>
 
 				<div class="row">
-
+                    {% for official in officials %}
 					<div class="col-lg-4 col-md-6">
 						<div class="speaker" data-aos="fade-up" data-aos-delay="100">
-						<img src="" alt="Lead" class="img-fluid">
-						<div class="details">
-							<h3><a href="">Test User</a></h3>
-							<p>Lead</p>
-							<div class="social">
-							<a href=""><i class="bi bi-twitter"></i></a>
-							<a href=""><i class="bi bi-facebook"></i></a>
-							<a href=""><i class="bi bi-instagram"></i></a>
-							<a href=""><i class="bi bi-linkedin"></i></a>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="speaker" data-aos="fade-up" data-aos-delay="200">
-						<img src="" alt="Technical lead" class="img-fluid">
-						<div class="details">
-							<h3><a href="">Test User</a></h3>
-							<p>Technical lead</p>
-							<div class="social">
-							<a href=""><i class="bi bi-twitter"></i></a>
-							<a href=""><i class="bi bi-facebook"></i></a>
-							<a href=""><i class="bi bi-instagram"></i></a>
-							<a href=""><i class="bi bi-linkedin"></i></a>
-							</div>
-						</div>
+                            <img src="" alt="Lead" class="img-fluid">
+                            <div class="details">
+                                <h3><a href="">Test User</a></h3>
+                                <p>Lead</p>
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
 						</div>
 					</div>
-					
+                    {% endfor %}					
 				</div>
 			</div>
 
@@ -289,7 +274,7 @@
 					<div class="col-lg-6 venue-info">
 						<div class="row justify-content-center">
 							<div class="col-11 col-lg-8 position-relative">
-								<h3>Downtown Conference Center, New York</h3>
+								<h3>Computer Science Lab, Rongo University</h3>
 								<p>Iste nobis eum sapiente sunt enim dolores labore accusantium autem. Cumque beatae ipsam. Est quae sit qui voluptatem corporis velit. Qui maxime accusamus possimus. Consequatur sequi et ea suscipit enim nesciunt quia velit.</p>
 							</div>
 						</div>
@@ -303,7 +288,7 @@
 					<div class="col-lg-3 col-md-4">
 						<div class="venue-gallery">
 							<a href="assets/img/venue-gallery/1.jpg" class="glightbox" data-gall="venue-gallery">
-								<img src="assets/img/venue-gallery/1.jpg" alt="" class="img-fluid">
+								<img src="assets/img/venue-gallery/1.jpg" alt="club-gallery-photos" class="img-fluid">
 							</a>
 						</div>
 					</div>
@@ -311,7 +296,7 @@
 					<div class="col-lg-3 col-md-4">
 						<div class="venue-gallery">
 							<a href="" class="glightbox" data-gall="venue-gallery">
-								<img src="" alt="" class="img-fluid">
+								<img src="" alt="club-gallery-photos" class="img-fluid">
 							</a>
 						</div>
 					</div>
@@ -358,15 +343,21 @@
 				</div>
 
 				<div class="row no-gutters sponsors-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
-					<div class="col-lg-3 col-md-4 col-xs-6">
+					<div class="col-lg-4 col-md-4 col-xs-6">
 						<div class="sponsors-logo">
-						    <img src="" class="img-fluid" alt="Google">
+						    <img src="{% static 'img/sponsors/google-logo.png' %}" class="img-fluid" alt="Google">
 						</div>
 					</div>
 
-					<div class="col-lg-3 col-md-4 col-xs-6">
+					<div class="col-lg-4 col-md-4 col-xs-6">
 						<div class="sponsors-logo">
-						    <img src="" class="img-fluid" alt="Rongo University">
+						    <img src="{% static 'img/sponsors/rongo-university.jpg' %}" class="img-fluid" alt="Rongo University">
+						</div>
+					</div>
+
+                    <div class="col-lg-4 col-md-4 col-xs-6">
+						<div class="sponsors-logo">
+						    <img src="{% static 'img/sponsors/dsc-sticker-files-rectangle.png' %}" class="img-fluid" alt="GDG Kisii">
 						</div>
 					</div>
 
@@ -378,7 +369,7 @@
 		<section id="faq">
 			<div class="container" data-aos="fade-up">
 				<div class="section-header">
-					<h2>F.A.Qs</h2>
+					<h2>F.A.Q</h2>
 				</div>
 
 				<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
