@@ -6,6 +6,7 @@ class CoreTeam(models.Model):
     id = models.CharField(max_length=20, primary_key=True, editable=False, unique=True)
     member = models.OneToOneField(User, on_delete=models.CASCADE, editable=False)
     role = models.CharField(max_length=50, blank=False)
+    tenure = models.CharField(max_length=9, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
 
@@ -22,6 +23,7 @@ class TechTeam(models.Model):
     name = models.OneToOneField(User, on_delete=models.CASCADE, editable=False)
     role = models.CharField(max_length=30, blank=False)
     team = models.CharField(max_length=70, blank=False)
+    tenure = models.CharField(max_length=9, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     edited = models.DateTimeField(auto_now=True)
 
@@ -50,6 +52,6 @@ class Sessions(models.Model):
         ordering = ['-created']
 
     def __str__(self):
-        return f'{self.event}'
+        return f'{self.speaker}'
 
 
