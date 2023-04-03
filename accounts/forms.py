@@ -13,6 +13,13 @@ class SignupForm(UserCreationForm):
         ('Male', 'Male'),
         ('Female', 'Female')
     )
+    SELECT_SCHOOL = (
+        (None, '-- Select your school --'),
+        ('School of Arts, Social Sciences and Business', 'School of Arts, Social Sciences and Business (SASSB)'),
+        ('School of Education', 'School of Education (SE)'),
+        ('School of Information, Communication & Media Studies', 'School of Information, Communication & Media Studies (INFOCOMS)'),
+        ('School of Science, Agriculture & Environmental Science', 'School of Science, Agriculture & Environmental Science (SSAES)'),
+    )
 
     first_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'mb-2', 'autofocus': True}), required=True)
     last_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'mb-2'}), required=True)
@@ -23,17 +30,10 @@ class SignupForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'gender', 'phone_no',]
+        fields = ['first_name', 'last_name', 'username', 'email', 'gender', 'phone_no', 'school']
 
 
 class UpdateProfileForm(forms.ModelForm):
-    SELECT_SCHOOL = (
-        (None, '-- Select your school --'),
-        ('School of Arts, Social Sciences and Business', 'School of Arts, Social Sciences and Business (SASSB)'),
-        ('School of Education', 'School of Education (SE)'),
-        ('School of Information, Communication & Media Studies', 'School of Information, Communication & Media Studies (INFOCOMS)'),
-        ('School of Science, Agriculture & Environmental Science', 'School of Science, Agriculture & Environmental Science (SSAES)'),
-    )
     SELECT_YEAR_OF_STUDY = (
         (None, '-- Select year of study --'),
         ('First year', 'First year'),
@@ -44,4 +44,4 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['school', 'year', 'profile_pic']
+        fields = ['year', 'profile_pic']
