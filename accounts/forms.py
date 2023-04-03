@@ -14,11 +14,13 @@ class SignupForm(UserCreationForm):
         ('Female', 'Female')
     )
 
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    email = forms.EmailField(required=True)
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'mb-2', 'autofocus': True}), required=True)
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'mb-2'}), required=True)
+    username = forms.CharField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'mb-2'}), required=True)
+    email = forms.EmailField(widget=forms.TextInput(attrs={'type': 'text', 'class': 'mb-2'}), required=True)
     gender = forms.ChoiceField(widget=forms.Select(attrs={'type': 'select', 'class': 'mb-2'}), choices=SELECT_GENDER)
     phone_no = forms.CharField(widget=forms.TextInput(attrs={'type': 'tel', 'class': 'mb-2'}), required=True)
+
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'gender', 'phone_no',]
